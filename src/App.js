@@ -33,7 +33,7 @@ function App(props) {
                 </div>
               </td>
               <td>
-                <Image src="..." roundedCircle thumbnail />
+                <Image src="null" roundedCircle thumbnail />
                 Contact First Name
                 Contact Last Name
               </td>
