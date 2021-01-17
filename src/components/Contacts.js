@@ -36,9 +36,9 @@ class Contacts extends Component {
     render() {
         return (
                 <tbody>
-                        {this.state.contacts.map(contact => (
+                        {this.state.contacts.map((contact => (
                             <ContactData key={contact.id} contact={contact}/>
-                        ))}
+                        )))}
                 </tbody>
         )
     }
