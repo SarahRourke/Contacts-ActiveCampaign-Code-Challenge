@@ -12,7 +12,7 @@ function App(props) {
         
           <thead className="text-muted">
             <tr>
-              <th className="text-center head-row">
+              <th className="text-center">
                 <div className="form-check">
                   <input className="form-check-input position-static" type="checkbox" value="" id="defaultCheck1" aria-label="..."></input>
                 </div>
