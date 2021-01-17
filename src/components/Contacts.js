@@ -21,11 +21,11 @@ class Contacts extends Component {
         axios.get('/contacts', {
             headers: {
                 //this env variable will be set during deploykent so apiKey is not bundled with rest of app code
-                'Api-Token': process.env.REACT_APP_API_TOKEN
+                'Api-Token': process.env.REACT_APP_API_TOKEN,
+                'Cache-Control': 'max-age=120'
             },
         })
         .then(res => {
-            console.log(res.data.contacts)
             this.setState({
                 contacts : res.data.contacts,
                 dataLoaded : true
