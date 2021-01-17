@@ -1,5 +1,6 @@
 import './App.css';
-import { Table, Image } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
+import Contacts from './components/Contacts';
 
 
 function App(props) {
@@ -24,8 +25,8 @@ function App(props) {
               <th>Tags</th>
             </tr>
           </thead>
-
-          <tbody>
+          <Contacts />
+          {/* <tbody>
             <tr>
               <td className="text-center">
                 <div className="form-check">
@@ -34,8 +35,7 @@ function App(props) {
               </td>
               <td>
                 <Image src="null" roundedCircle thumbnail />
-                Contact First Name
-                Contact Last Name
+                
               </td>
               <td>
                 $Total Value
@@ -50,7 +50,7 @@ function App(props) {
                 Tags
               </td>
             </tr>
-          </tbody>
+          </tbody> */}
 
         </Table>
       </div>
