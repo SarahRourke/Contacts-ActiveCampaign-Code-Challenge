@@ -19,13 +19,13 @@ class Contacts extends Component {
     getContacts = () => {
         // call to retrieve list of all contacts
         axios.get('/contacts?limit=5', {
-            headers: {
+            // headers: {
                 //this env variable will be set during deploykent so apiKey is not bundled with rest of app code
-                'Api-Token': process.env.REACT_APP_API_TOKEN,
+                // 'Api-Token': process.env.REACT_APP_API_TOKEN,
            
               
                 'Cache-Control': 'max-age=120 public max-stale[=300]'
-            },
+            // },
         })
         .then(res => {
             this.setState({
