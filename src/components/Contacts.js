@@ -18,7 +18,7 @@ class Contacts extends Component {
 
     getContacts = () => {
         // call to retrieve list of all contacts
-        axios.get('/contacts', {
+        axios.get('https://sahmed93846.api-us1.com/api/3/contacts', {
             headers: {
                 //this env variable will be set during deploykent so apiKey is not bundled with rest of app code
                 'Api-Token': process.env.REACT_APP_API_TOKEN,
