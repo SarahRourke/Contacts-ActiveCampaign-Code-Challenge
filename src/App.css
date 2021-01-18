@@ -1,33 +1,45 @@
 .App {
   display: flex;
   box-sizing: content-box;
-  height: 100vh;
+  height: 80vh;
   text-align: center;
   width: 100vw;
 }
 
 div.table-container {
-  margin: 3rem auto;
+  margin: 6rem auto;
   width: 80vw;
+  height: 90%;
   font-size: 1.2vw;
+  overflow-y: scroll;
 }
 
-table.table tr{
-  padding-left: 12px;
+table.table th {
+  background-color: white;
+  position: sticky;
+  top: 0;
+  vertical-align: middle;
+  
 }
-
 table.table thead th {
   text-align: left;
   font-size: 1em;
   border: 0; 
+  height: 28px;
   padding: 0;
   vertical-align: middle;
+  
 }
 
 table.table th.text-center {
-  height: 28px;
+  height: 12px;
+  width: 12px;
   vertical-align: middle;
+  padding-left: 12px;
+  padding-right: 12px;
 }
+
+
 
 table.table tbody td {
   text-align: left;
@@ -45,15 +57,20 @@ table.table td.text-center {
 }
 
 div.form-check {
-  padding-left: 12px;
-  margin-left: 12px;
-  margin-right: 3px;
+  padding: 0;
+
+  margin: 0;
+  height: 28px;
+  vertical-align: middle;
 }
 
 
 table.table input {
-  height: 12px;
-  width: 12px;
+  max-height: 12px;
+  max-width: 12px;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
 }
 
 Image {
@@ -63,4 +80,7 @@ Image {
 
 img {
   margin-right: 12px;
+  margin-left: 0;
+  height: 16px;
+  width: 16px;
 }
