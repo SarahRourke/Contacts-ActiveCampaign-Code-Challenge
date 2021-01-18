@@ -1,5 +1,4 @@
 import './App.css';
-import PropTypes from 'prop-types';
 import { Table } from 'react-bootstrap';
 import Contacts from './components/Contacts';
 
@@ -7,8 +6,7 @@ import Contacts from './components/Contacts';
 function App(props) {
   return (
     <div className="App">
-      
-      {/* contacts table */}
+   
       <div className="table-container">
         <Table striped bordered hover>
         

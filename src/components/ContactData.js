@@ -6,26 +6,25 @@ import '../avatar.png';
 
 const ContactData = (props) => {
     const [contact, setContact] = useState( ...props.contact.id );
-    const [deals, setDeals] = useState( '' );
+    const [deals, setDeals] = useState( [] );
 
     useEffect(() => {
-        axios.get(`https://sahmed93846.api-us1.com/api/3/contacts/${props.contact.id}?limit=5`, {
+        axios.get(`/contacts/${props.contact.id}?limit=5`, {
             headers: {
                 //this env variable will be set during deploykent so apiKey is not bundled with rest of app code
                 'Api-Token': process.env.REACT_APP_API_TOKEN,
-                
-                'Access-Control-Request-Method': 'GET',
-                'Access-Control-Request-Headers': 'Content-type',
+          
+              
                 'Cache-Control': 'max-age=120 public max-stale[=300]'
             }
         })
         .then(res => {
             setContact(res.data.contact);
-            setDeals(res.data.contact); 
+            setDeals(res.data.deals); 
             console.log(res.data.contact);
         })
         .catch(error => console.log(error))
-    }, [props.contact.id], [props.contact.id])
+    }, [props.contact.id], [deals.length])
 
     
     return (
@@ -46,7 +45,8 @@ const ContactData = (props) => {
                 City, State, Country
               </td>
               <td className="text-center">
-                {contact.deals}
+                {[deals.length]}
+                {/* should be deals.length */}
               </td>
               <td>
                 Tags
