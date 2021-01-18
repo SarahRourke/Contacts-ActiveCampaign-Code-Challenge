@@ -9,7 +9,7 @@ const ContactData = (props) => {
     const [deals, setDeals] = useState( '' );
 
     useEffect(() => {
-        axios.get(`/contacts/${props.contact.id}?limit=5`, {
+        axios.get(`https://sahmed93846.api-us1.com/api/3/contacts/${props.contact.id}?limit=5`, {
             headers: {
                 //this env variable will be set during deploykent so apiKey is not bundled with rest of app code
                 'Api-Token': process.env.REACT_APP_API_TOKEN,
