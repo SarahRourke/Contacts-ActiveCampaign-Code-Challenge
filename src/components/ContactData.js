@@ -1,25 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Image from 'react-bootstrap/Image';
+import '../avatar.png';
+
 
 const ContactData = (props) => {
     const [contact, setContact] = useState( ...props.contact.id );
+    const [deals, setDeals] = useState( '' );
 
     useEffect(() => {
-        axios.get(`https://sahmed93846.api-us1.com/api/3/contacts/${props.contact.id}`, {
+        axios.get(`/contacts/${props.contact.id}?limit=5`, {
             headers: {
                 //this env variable will be set during deploykent so apiKey is not bundled with rest of app code
                 'Api-Token': process.env.REACT_APP_API_TOKEN,
-                'Access-Control-Allow-Origin': 'https://shielded-spire-74256.herokuapp.com',
-                'Cache-Control': 'max-age=120'
+                // 'Access-Control-Allow-Origin': 'https://shielded-spire-74256.herokuapp.com',
+                'Cache-Control': 'max-age=120 public max-stale[=300]'
             }
         })
         .then(res => {
-            setContact(res.data.contact); 
+            setContact(res.data.contact);
+            setDeals(res.data.contact); 
             console.log(res.data.contact);
         })
         .catch(error => console.log(error))
-    }, [props.contact.id])
+    }, [props.contact.id], [props.contact.id])
 
     
     return (
@@ -30,7 +34,7 @@ const ContactData = (props) => {
                 </div>
               </td>
               <td>
-                <Image src="null" roundedCircle thumbnail />
+                <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoEPvvuhwVmeQk5SflMhusiojB5ud58g59Lw&usqp=CAU" roundedCircle thumbnail />
                 {contact.firstName} {contact.lastName}
               </td>
               <td>
@@ -40,7 +44,7 @@ const ContactData = (props) => {
                 City, State, Country
               </td>
               <td className="text-center">
-                Deals - number of 
+                {contact.deals}
               </td>
               <td>
                 Tags

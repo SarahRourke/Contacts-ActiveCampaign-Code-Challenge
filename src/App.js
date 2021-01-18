@@ -1,4 +1,5 @@
 import './App.css';
+import PropTypes from 'prop-types';
 import { Table } from 'react-bootstrap';
 import Contacts from './components/Contacts';
 

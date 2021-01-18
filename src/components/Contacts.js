@@ -18,20 +18,20 @@ class Contacts extends Component {
 
     getContacts = () => {
         // call to retrieve list of all contacts
-        axios.get('https://sahmed93846.api-us1.com/api/3/contacts', {
+        axios.get('/contacts?limit=5', {
             headers: {
                 //this env variable will be set during deploykent so apiKey is not bundled with rest of app code
                 'Api-Token': process.env.REACT_APP_API_TOKEN,
-                'Access-Control-Allow-Origin': 'https://shielded-spire-74256.herokuapp.com',
+                // 'Access-Control-Allow-Origin': 'https://shielded-spire-74256.herokuapp.com',
                 'Cache-Control': 'max-age=120'
             },
         })
         .then(res => {
             this.setState({
-                contacts : res.data.contacts,
+                contacts : res.data.contacts ,
                 dataLoaded : true
             })
-        }).catch(error => console.log(error));
+        }).catch(error => console.log(error))
     }
 
     render() {
@@ -41,8 +41,8 @@ class Contacts extends Component {
                             <ContactData key={contact.id} contact={contact}/>
                         )))}
                 </tbody>
-        )
-    }
+    )}
+    
 
 }
 
