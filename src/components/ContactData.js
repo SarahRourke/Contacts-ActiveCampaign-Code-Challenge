@@ -13,7 +13,7 @@ const ContactData = (props) => {
             headers: {
                 //this env variable will be set during deploykent so apiKey is not bundled with rest of app code
                 'Api-Token': process.env.REACT_APP_API_TOKEN,
-                'Access-Control-Allow-Origin': 'https://shielded-spire-74256.herokuapp.com/',
+                
                 'Cache-Control': 'max-age=120 public max-stale[=300]'
             }
         })
