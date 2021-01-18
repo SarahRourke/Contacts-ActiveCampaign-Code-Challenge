@@ -14,6 +14,8 @@ const ContactData = (props) => {
                 //this env variable will be set during deploykent so apiKey is not bundled with rest of app code
                 'Api-Token': process.env.REACT_APP_API_TOKEN,
                 
+                'Access-Control-Request-Method': 'GET',
+                'Access-Control-Request-Headers': 'Content-type',
                 'Cache-Control': 'max-age=120 public max-stale[=300]'
             }
         })
