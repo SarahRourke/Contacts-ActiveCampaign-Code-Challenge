@@ -5,7 +5,7 @@ import '../avatar.png';
 
 
 const ContactData = (props) => {
-    const [contact, setContact] = useState([ ...props.contact.id ]);
+    const [contact, setContact] = useState(...props.contact.id );
     // const [deals, setDeals] = useState( [] );
     // const [geoAddresses, setGeoAddresses] = useState( [] )
     useEffect(() => {
@@ -28,7 +28,7 @@ const ContactData = (props) => {
               )
               console.log([{contact}])
               console.log(props.contact.deals)
-              console.log(props)
+              console.log(props.contact)
               // console.log([{deals}]);
         })
  
