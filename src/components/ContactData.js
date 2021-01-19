@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Image from 'react-bootstrap/Image';
+// import Image from 'react-bootstrap/Image';
 import '../avatar.png';
 
 
 const ContactData = (props) => {
     const [contact, setContact] = useState( ...props.contact.id );
-    const [deals, setDeals] = useState( [] );
-
+    // const [deals, setDeals] = useState( [] );
+    // const [geoAddresses, setGeoAddresses] = useState( [] )
     useEffect(() => {
-        axios.get(`https://sahmed93846.api-us1.com/api/3/contacts/${props.contact.id}?limit=5`, {
+        axios.get(`/contacts/${props.contact.id}limit=1`, {
             headers: {
                 //this env variable will be set during deploykent so apiKey is not bundled with rest of app code
                 'Api-Token': process.env.REACT_APP_API_TOKEN,
@@ -19,13 +19,18 @@ const ContactData = (props) => {
             }
         })
         .then(res => {
-            setContact(res.data.contact);
-            setDeals(res.data.deals); 
-            console.log(res.data.contact);
-        })
+            setContact(
+              res => {
+              return  [...contact.props]}
+            // setDeals(res.data.deals); 
+            // setGeoAddresses(res.data.geoAddresses);
+            // console.log(res.data.props);
+            )})
         .catch(error => console.log(error))
-    }, [props.contact.id], [deals.length])
-
+    }, []);
+    // [deals.length],
+    //  [geoAddresses])
+  
     
     return (
         <tr>
@@ -35,17 +40,20 @@ const ContactData = (props) => {
                 </div>
               </td>
               <td>
-                <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoEPvvuhwVmeQk5SflMhusiojB5ud58g59Lw&usqp=CAU" roundedCircle thumbnail />
-                {contact.firstName} {contact.lastName}
+                {/* <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoEPvvuhwVmeQk5SflMhusiojB5ud58g59Lw&usqp=CAU" roundedCircle thumbnail /> */}
+                {props.contact.firstName} {props.contact.lastName} 
               </td>
               <td>
                 $Total Value
               </td>
-              <td>
-                City, State, Country
+             
+                <td>
+               {props.contact.deals} , State, Countr
               </td>
+            
+              
               <td className="text-center">
-                {[deals.length]}
+                {/* {[deals.length]} */}
                 {/* should be deals.length */}
               </td>
               <td>
