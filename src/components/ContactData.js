@@ -5,33 +5,39 @@ import '../avatar.png';
 
 
 const ContactData = (props) => {
-    const [contact, setContact] = useState( ...props.contact.id );
+    const [contact, setContact] = useState([ ...props.contact.id ]);
     // const [deals, setDeals] = useState( [] );
     // const [geoAddresses, setGeoAddresses] = useState( [] )
     useEffect(() => {
-        axios.get(`/contacts/${props.contact.id}limit=1`, {
+       axios.get(`/contacts/${props.contact.id}?limit=1`, {
             headers: {
                 //this env variable will be set during deploykent so apiKey is not bundled with rest of app code
                 'Api-Token': process.env.REACT_APP_API_TOKEN,
           
               
                 'Cache-Control': 'max-age=120 public max-stale[=300]'
-            }
+          }
         })
         .then(res => {
-            setContact(
-              res => {
-              return  [...contact.props]}
-            // setDeals(res.data.deals); 
-            // setGeoAddresses(res.data.geoAddresses);
-            // console.log(res.data.props);
-            )})
-        .catch(error => console.log(error))
-    }, []);
-    // [deals.length],
-    //  [geoAddresses])
+        
+            setContact( 
+              
+               res.data.props
+              //  {props:[res.data.props]},
+                // {props:[res.data.deals]}
+              )
+              console.log([{contact}])
+              console.log(props.contact.deals)
+              console.log(props)
+              // console.log([{deals}]);
+        })
+ 
+          
+          .catch(error => console.log(error))
+            
+          
+        }, [props.contact.id])
   
-    
     return (
         <tr>
               <td className="text-center">
@@ -48,13 +54,15 @@ const ContactData = (props) => {
               </td>
              
                 <td>
-               {props.contact.deals} , State, Countr
+                  {props.contact.value}
+                , State, Countr
               </td>
             
               
               <td className="text-center">
                 {/* {[deals.length]} */}
                 {/* should be deals.length */}
+                {/* {deals.length} */}
               </td>
               <td>
                 Tags
