@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../App.css';
 import axios from 'axios';
+import CurrencyConverter from 'react-currency-conv';
 import Image from 'react-bootstrap/Image';
 
 
@@ -8,8 +9,8 @@ const Contact = (props) => {
   
     // const [contactId] = useState(...props.id) 
     const [contact, setContact] = useState(props.props);
-    const [deals, setDeals] = useState([])
-    const [loaded, setLoaded] = useState(false)
+    const [deals, setDeals] = useState([]);
+    const [loaded, setLoaded] = useState(false);
     // const [setContactData] = useState({})
     // const contact = useContext(contactData.contact);
     // const geoAddresses = useContext(contactData.geoAddresses)
@@ -32,19 +33,25 @@ const Contact = (props) => {
         .then(data => {
             setDeals(data.deals)
             setContact(data.contact)
-            
             setLoaded(true)
-            console.log(data.deals)
            
         })
         .catch(error => console.log(error))
     }, [props], [])
 
+    
+   
+      
 
 
 
     return (
       loaded && 
+      
+       
+     
+    
+          
             <tr>
             <td className="text-center">
               <div className="form-check">
@@ -56,11 +63,12 @@ const Contact = (props) => {
               <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoEPvvuhwVmeQk5SflMhusiojB5ud58g59Lw&usqp=CAU" roundedCircle thumbnail />
              {contact.firstName} {contact.lastName}
             </td>
-            <td>
-             {deals.map(deals => (
-               deals.currency
-               
-             ))}
+            
+            <td>{deals.map(deals => (deals.currency))}
+                {deals.map(deals => (deals.value))}
+                {deals.currency}
+                
+                {deals.value}
             </td>
             <td>
              {/* {contact.geoAddress.city}, {contact.geoAddresses.city}, {contact.geoAddresses.country}   */}
