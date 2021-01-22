@@ -8,7 +8,7 @@ const Contacts = (props) => {
     
     
     useEffect(() => {
-        axios.get('/contacts?limit=1', {
+        axios.get('/contacts?limit=5', {
             headers: {
                 'Api-Token' : process.env.REACT_APP_API_TOKEN,
                 'Cache-Control' : 'max-age=12 public max-stale[=5]'

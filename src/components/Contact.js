@@ -5,9 +5,10 @@ import Image from 'react-bootstrap/Image';
 
 
 const Contact = (props) => {
-  console.log(props)
+  
     // const [contactId] = useState(...props.id) 
     const [contact, setContact] = useState(props.props);
+    const [deals, setDeals] = useState([])
     const [loaded, setLoaded] = useState(false)
     // const [setContactData] = useState({})
     // const contact = useContext(contactData.contact);
@@ -29,14 +30,18 @@ const Contact = (props) => {
         })
         .then(res => res.data)
         .then(data => {
-            setContact(data.contact || null)
+            setDeals(data.deals)
+            setContact(data.contact)
+            
             setLoaded(true)
-            // console.log(data)
+            console.log(data.deals)
+           
         })
         .catch(error => console.log(error))
-    }, [props])
+    }, [props], [])
 
-    
+
+
 
     return (
       loaded && 
@@ -52,10 +57,13 @@ const Contact = (props) => {
              {contact.firstName} {contact.lastName}
             </td>
             <td>
-             {contact.deals.value}
+             {deals.map(deals => (
+               deals.currency
+               
+             ))}
             </td>
             <td>
-             {/* {contact.geoAddresses.city}, {contact.geoAddresses.city}, {contact.geoAddresses.country}   */}
+             {/* {contact.geoAddress.city}, {contact.geoAddresses.city}, {contact.geoAddresses.country}   */}
             </td>
             <td className="text-center">
              {contact.deals.length}
