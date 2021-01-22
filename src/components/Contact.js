@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../App.css';
 import axios from 'axios';
-import CurrencyConverter from 'react-currency-conv';
 import Image from 'react-bootstrap/Image';
 
 
@@ -10,6 +9,7 @@ const Contact = (props) => {
     // const [contactId] = useState(...props.id) 
     const [contact, setContact] = useState(props.props);
     const [deals, setDeals] = useState([]);
+    const [geoAddresses, setGeoAddresses] = useState([]);
     const [loaded, setLoaded] = useState(false);
     // const [setContactData] = useState({})
     // const contact = useContext(contactData.contact);
@@ -31,26 +31,21 @@ const Contact = (props) => {
         })
         .then(res => res.data)
         .then(data => {
+            
             setDeals(data.deals)
             setContact(data.contact)
-            setLoaded(true)
-           
+            setGeoAddresses(data.geoAddresses)
+            
+            console.log(data.geoAddresses)
+           setLoaded(true)
         })
         .catch(error => console.log(error))
-    }, [props], [])
-
-    
-   
-      
-
+    }, [props], [], [])
 
 
     return (
       loaded && 
-      
-       
-     
-    
+
           
             <tr>
             <td className="text-center">
@@ -64,14 +59,20 @@ const Contact = (props) => {
              {contact.firstName} {contact.lastName}
             </td>
             
-            <td>{deals.map(deals => (deals.currency))}
-                {deals.map(deals => (deals.value))}
-                {deals.currency}
+            <td className="text-left">
+              {deals.map(deals => (
                 
-                {deals.value}
+               <div symbol="$" key={deals.id}> {deals.currency} 
+                <> </> {deals.value} </div>
+              
+              ))}
             </td>
-            <td>
-             {/* {contact.geoAddress.city}, {contact.geoAddresses.city}, {contact.geoAddresses.country}   */}
+            <td>{contact.geoAddresses.city}
+              {/* {geoAddresses.map(geoAddresses => (
+                geoAddresses.city  */}
+                {/* // + ' ' + {geoAddresses.state} + ' ' + {geoAddresses.country2} */}
+              {/* ))} */}
+
             </td>
             <td className="text-center">
              {contact.deals.length}
