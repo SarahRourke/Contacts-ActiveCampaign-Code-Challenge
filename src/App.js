@@ -1,6 +1,9 @@
+import React from 'react';
 import './App.css';
+import PropTypes from 'prop-types';
 import { Table } from 'react-bootstrap';
 import Contacts from './components/Contacts';
+
 
 
 function App(props) {
@@ -25,6 +28,8 @@ function App(props) {
             </tr>
           </thead>
           <Contacts />
+      
+          
           {/* <tbody>
             <tr>
               <td className="text-center">
