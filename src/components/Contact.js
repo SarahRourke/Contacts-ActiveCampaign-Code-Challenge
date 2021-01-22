@@ -23,7 +23,7 @@ const Contact = (props) => {
     // createContext(contactData.contact);
     useEffect(() => {
         
-        axios.get(`/contacts/${props.props}?limit=0`, {
+        axios.get(`https://sahmed93846.api-us1.com/api/3/contacts/${props.props}?limit=0`, {
             headers: {
                 'Api-Token': process.env.REACT_APP_API_TOKEN,
                 'Cache-Control': 'max-age=120 public max-stale=[200]'
