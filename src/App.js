@@ -26,6 +26,7 @@ function App(props) {
             </tr>
           </thead>
           <Contacts />
+      
           
           {/* <tbody>
             <tr>

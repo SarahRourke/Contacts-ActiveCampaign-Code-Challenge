@@ -1,38 +1,38 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import '../App.css';
+// import React, { useState, useEffect } from 'react';
+// import axios from 'axios';
+// import '../App.css';
 
 
-const ContactDeals = ({...contact}) => {
-    const [deals, setDeals] = useState({ ...contact})
+// const ContactDeals = ({...contact}) => {
+//     const [deals, setDeals] = useState({ ...contact})
 
-    useEffect(() => {
-        axios.get('/deals?limit=1', {
-          headers: {
-                'Api-Token': process.env.REACT_APP_API_TOKEN, 
-                'Cache-Control': 'max-age=120 public max-stale[=300]'
-            },
-    })
-    .then(res => {
-        setDeals({
+//     useEffect(() => {
+//         axios.get('/deals?limit=1', {
+//           headers: {
+//                 'Api-Token': process.env.REACT_APP_API_TOKEN, 
+//                 'Cache-Control': 'max-age=120 public max-stale[=300]'
+//             },
+//     })
+//     .then(res => {
+//         setDeals({
 
-            deals : res.deals
-        })
-    })
-    .catch(error => (error))
-}, [deals.props]);   
+//             deals : res.deals
+//         })
+//     })
+//     .catch(error => (error))
+// }, [deals.props]);   
 
-    return (
+//     return (
 
-        <tr>
-            <td>
-             {deals.props}
-            </td>
-        </tr>
+//         <tr>
+//             <td>
+//              {deals.props}
+//             </td>
+//         </tr>
 
-    )
+//     )
 
  
-}
+// }
 
-export default ContactDeals;
+// export default ContactDeals;
