@@ -5,51 +5,41 @@ import Image from 'react-bootstrap/Image';
 
 
 const Contact = (props) => {
+  console.log(props)
     // const [contactId] = useState(...props.id) 
-    const [contact, setContact] = useState(...props.id);
+    const [contact, setContact] = useState(props.props);
+    const [loaded, setLoaded] = useState(false)
     // const [setContactData] = useState({})
     // const contact = useContext(contactData.contact);
     // const geoAddresses = useContext(contactData.geoAddresses)
     // [contacts, setContacts] = useContext({ContactContext})
     
-    // const contactData = {
-    //     contact: {
-    //         firstName: "",
-    //         lastName: ""
-    //     },
-    //     geoAddresses: {    
-    //         city: "",
-    //         state: "",
-    //         country: ""
-    //     },
-    //     deals: {    
-    //         deals: ""
-    //         totalValue: ""
-    //     },
-    //     tags: { 
-    //         tags: ""
-    //     }
-    // }
+    
+    
     
     // const ContactContext = 
     // createContext(contactData.contact);
     useEffect(() => {
         
-        axios.get(`/contacts/${props.id}?limit=1`, {
-            // headers: {
-            //     'Api-Token': process.env.REACT_APP_API_TOKEN,
-            //     'Cache-Control': 'max-age=120 public max-stale=[200]'
-            // }
+        axios.get(`/contacts/${props.props}?limit=0`, {
+            headers: {
+                'Api-Token': process.env.REACT_APP_API_TOKEN,
+                'Cache-Control': 'max-age=120 public max-stale=[200]'
+            },
         })
         .then(res => res.data)
         .then(data => {
-            setContact(data.contact)
+            setContact(data.contact || null)
+            setLoaded(true)
             // console.log(data)
         })
-        
-    })
+        .catch(error => console.log(error))
+    }, [props])
+
+    
 
     return (
+      loaded && 
             <tr>
             <td className="text-center">
               <div className="form-check">
@@ -59,20 +49,20 @@ const Contact = (props) => {
             </td>
             <td>
               <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoEPvvuhwVmeQk5SflMhusiojB5ud58g59Lw&usqp=CAU" roundedCircle thumbnail />
-             
+             {contact.firstName} {contact.lastName}
             </td>
             <td>
-              $Total Value
+             {contact.deals.value}
             </td>
             <td>
-              City, State, Country
+             {/* {contact.geoAddresses.city}, {contact.geoAddresses.city}, {contact.geoAddresses.country}   */}
             </td>
             <td className="text-center">
-              {/* {[deals.length]} */}
-              {/* should be deals.length */}
+             {contact.deals.length}
+              
             </td>
             <td>
-              Tags
+              {contact.tags}
             </td>
           </tr>
 
