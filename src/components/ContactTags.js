@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Tag from './Tag';
 
 const ContactTags = (props) => {
    
@@ -25,7 +26,7 @@ const ContactTags = (props) => {
         loaded &&
             <>
             {tags.map(tags => (
-                <TagDescription key={tags.tag} props={tags.tag} />
+                <Tag key={tags.tag} props={tags.tag} />
             ))}
             </>
     )
