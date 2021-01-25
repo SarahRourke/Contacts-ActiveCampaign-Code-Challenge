@@ -13,9 +13,9 @@ const Contacts = (props) => {
         axios.get('https://cors-anywhere.herokuapp.com/sahmed93846.api-us1.com/api/3/contacts?limit=20'
         , {
             headers: {
-                'Api-Token' : process.env.REACT_APP_API_TOKEN
-                // 'Cache-Control' : 'max-age=12 public max-stale[=200]'
-            }
+                'Api-Token' : process.env.REACT_APP_API_TOKEN,
+                'Cache-Control' : 'max-age=12 public max-stale[=200]'
+            },
         }
         )
         .then(res => res.data)
