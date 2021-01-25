@@ -2,6 +2,7 @@
 Contacts - Simple React App for ActiveCampaign code challenge
 
 Utilizes:
+React, JavaScript, Node v15.6.0, npm 7.4.0, React-Bootstrap and basic CSS styling.
 
 
 
