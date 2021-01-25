@@ -10,12 +10,12 @@ const ContactTags = (props) => {
 
     useEffect(() => {
         axios.get(`https://cors-anywhere.herokuapp.com/sahmed93846.api-us1.com/api/3/contacts/${props.props}/contactTags?limit=1`
-        // , {
-        //     headers: {
-        //         'Api-Token': process.env.REACT_APP_API_TOKEN,
-        //         'Cache-Control' : 'max-age=12 public max-stale[=200]'
-        //     }
-        // }
+        , {
+            headers: {
+                'Api-Token': process.env.REACT_APP_API_TOKEN
+                // 'Cache-Control' : 'max-age=12 public max-stale[=200]'
+            }
+        }
         )
         .then(res => res.data)
         .then(data => {
