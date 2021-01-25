@@ -12,18 +12,19 @@ const Contacts = (props) => {
         axios.get('/contacts', {
             headers: {
                 'Api-Token' : process.env.REACT_APP_API_TOKEN,
-                'Cache-Control' : 'max-age=12 public max-stale[=5]'
+                'Cache-Control' : 'max-age=12 public max-stale[=200]'
             }
         })
         .then(res => res.data)
         .then(data => {
-            console.log(data)
+         
             setContacts(data.contacts)
             setLoaded(true)
             // console.log(data)
         })
         .catch(error => console.log(error))
         }, [])
+        
 
     return (
         loaded &&

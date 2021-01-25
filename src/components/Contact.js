@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import '../App.css';
 import axios from 'axios';
+import ContactTags from './ContactTags';
 import Image from 'react-bootstrap/Image';
 
 // assumed deals column is in reference to the total number of all deals
 
 
 const Contact = (props) => {
-  
+    console.log(props)
     const [contact, setContact] = useState(props.props);
     const [deals, setDeals] = useState([]);
     const [geoAddresses, setGeoAddresses] = useState([]);
+    const [contactTags, setContactTags] = useState(contact.id)
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
         
-        axios.get(`/contacts/${props.props}?limit=0`, {
+        axios.get(`/contacts/${props.props}`, {
             headers: {
                 'Api-Token': process.env.REACT_APP_API_TOKEN,
                 'Cache-Control': 'max-age=120 public max-stale=[200]'
@@ -23,18 +25,20 @@ const Contact = (props) => {
         })
         .then(res => res.data)
         .then(data => {
-            console.log(data)
+           
             setContact(data.contact)
             setDeals(data.deals) 
             setGeoAddresses(data.geoAddresses)
+            setContactTags(props.cotactTags)
             
             setLoaded(true)
+
             
            
            
         })
         .catch(error => console.log(error))
-    }, [props.props], [], [])
+    }, [props.props], [], [], [])
 
 
     return (
@@ -55,9 +59,10 @@ const Contact = (props) => {
              {contact.firstName} {contact.lastName}
             </td>
             <td className="text-left">
+              
               {deals.map(deals => (
-                (new Intl.NumberFormat('en-US', { style: 'currency', currency: (deals.currency), maximumFractionDigits: 0}).format(deals.value))
-              ))}
+                (new Intl.NumberFormat('en-US', { style: 'currency', currency: (deals.currency), maximumFractionDigits: 0}).format(deals.value)+ ' '
+              )))}
               
             </td>
             <td>
@@ -71,7 +76,7 @@ const Contact = (props) => {
              {contact.deals.length}
             </td>
             <td>
-              {/* {contact.tags} */}
+              <ContactTags props={contact.id} />
             </td>
           </tr>
 
