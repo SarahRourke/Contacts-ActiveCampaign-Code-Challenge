@@ -17,8 +17,7 @@ const Contact = (props) => {
 
     useEffect(() => {
         
-        axios.get(`https://cors-anywhere.herokuapp.com/sahmed93846.api-us1.com/api/3/contacts/${props.props}?limit=1`
-        , {
+        axios.get(`https://cors-anywhere.herokuapp.com/sahmed93846.api-us1.com/api/3/contacts/${props.props}`, {
             headers: {
                 'Api-Token': process.env.REACT_APP_API_TOKEN,
                 'Cache-Control': 'max-age=120 public max-stale=[200]'
@@ -32,10 +31,11 @@ const Contact = (props) => {
             setDeals(data.deals) 
             setGeoAddresses(data.geoAddresses) 
             setLoaded(true)
+            console.log(data)
            
         })
         .catch(error => console.log(error))
-    }, [props.props], [], [], [])
+    }, [props.props], [deals], [geoAddresses])
 
 
     return (

@@ -5,15 +5,15 @@ import '../App.css';
 
 const Tag = (props) => {
     
-    const [tag, setTag] = useState([])
+    const [tag, setTag] = useState([props.props])
     const [loaded, setLoaded] = useState(false)
-
+    console.log(tag)
     useEffect(() => {
-        axios.get(`https://cors-anywhere.herokuapp.com/sahmed93846.api-us1.com/api/3/tags/${props.props}?limit=0`
-        , {
+        axios.get(`https://cors-anywhere.herokuapp.com/sahmed93846.api-us1.com/api/3/tags/${props.props}`, {
             headers: {
                 'Api-Token' : process.env.REACT_APP_API_TOKEN,
-            }
+                'Cache-Control' : 'max-age=120 public max-stale[=200]'
+            },
         }
         )
         .then(res => res.data)
