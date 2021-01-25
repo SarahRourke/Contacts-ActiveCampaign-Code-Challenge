@@ -8,7 +8,7 @@ const Tag = (props) => {
     const [loaded, setLoaded] = useState(false)
 
     useEffect(() => {
-        axios.get(`/tags/${props.props}`, {
+        axios.get(`https://sahmed93846.api-us1.com/api/3/tags/${props.props}`, {
             headers: {
                 'Api-Token' : process.env.REACT_APP_API_TOKEN,
             }
