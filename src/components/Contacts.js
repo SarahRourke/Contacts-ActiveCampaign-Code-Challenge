@@ -10,7 +10,7 @@ const Contacts = (props) => {
   
     useEffect(() => {
         
-        axios.get('https://cors-anywhere.herokuapp.com/sahmed93846.api-us1.com/api/3/contacts?limit=10', {
+        axios.get('https://cors-anywhere.herokuapp.com/sahmed93846.api-us1.com/api/3/contacts?limit=15', {
             headers: {
                 'Api-Token' : process.env.REACT_APP_API_TOKEN,
                 'Cache-Control' : 'max-age=120 public max-stale[=200]'
@@ -23,7 +23,7 @@ const Contacts = (props) => {
             setLoaded(true)     
         })
         .catch(error => console.log(error))
-    }, [contacts.length])
+    }, [])
         
     return (
         
