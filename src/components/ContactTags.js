@@ -8,7 +8,7 @@ const ContactTags = (props) => {
     const [loaded, setLoaded] = useState(false)
 
     useEffect(() => {
-        axios.get(`https://sahmed93846.api-us1.com/api/3/contacts/${props.props}/contactTags`, {
+        axios.get(`https://cors-anywhere.herokuapp.com/sahmed93846.api-us1.com/api/3/contacts/${props.props}/contactTags`, {
             headers: {
                 'Api-Token': process.env.REACT_APP_API_TOKEN,
                 'Cache-Control' : 'max-age=12 public max-stale[=200]'
