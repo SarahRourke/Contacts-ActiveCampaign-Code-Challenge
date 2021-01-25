@@ -4,14 +4,19 @@
   height: 80vh;
   text-align: center;
   width: 100vw;
+  font-family: 'IBM Plex Sans', sans-serif;
+
 }
 
 div.table-container {
   margin: 6rem auto;
   width: 80vw;
   height: 90%;
-  font-size: 1.2vw;
   overflow-y: scroll;
+}
+
+.table-striped tbody tr:nth-of-type:odd {
+  background-color: #e8f0ff;
 }
 
 table.table th {
@@ -19,16 +24,15 @@ table.table th {
   position: sticky;
   top: 0;
   vertical-align: middle;
-  
 }
+
 table.table thead th {
   text-align: left;
-  font-size: 1em;
+  font-size: 14px;
   border: 0; 
   height: 28px;
   padding: 0;
   vertical-align: middle;
-  
 }
 
 table.table th.text-center {
@@ -39,34 +43,27 @@ table.table th.text-center {
   padding-right: 12px;
 }
 
-
-
 table.table tbody td {
   text-align: left;
-  font-size: 1.1em;
+  font-size: 14px;
   border: 0;
   padding: 0;
   vertical-align: middle;
-  max-width: 1.8em;
-  
- 
+  max-width: fit-content;
 }
 
 table.table td.text-left {
   height: 46px;
   vertical-align: middle;
   padding: 0;
-  max-width: 1.8em;
 }
 
 div.form-check {
   padding: 0;
-
   margin: 0;
   height: 28px;
   vertical-align: middle;
 }
-
 
 table.table input {
   max-height: 12px;
@@ -86,4 +83,9 @@ img {
   margin-left: 0;
   height: 16px;
   width: 16px;
+}
+
+table.table td.names {
+  font-weight: bold;
+  color: #0356fc;
 }
