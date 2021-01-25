@@ -44,16 +44,19 @@ table.table th.text-center {
 table.table tbody td {
   text-align: left;
   font-size: 1.1em;
-  font-weight: bold;
   border: 0;
   padding: 0;
   vertical-align: middle;
+  max-width: 1.8em;
+  
+ 
 }
 
-table.table td.text-center {
+table.table td.text-left {
   height: 46px;
   vertical-align: middle;
   padding: 0;
+  max-width: 1.8em;
 }
 
 div.form-check {
