@@ -17,7 +17,7 @@ const Contact = (props) => {
 
     useEffect(() => {
         
-        axios.get(`https://cors-anywhere.herokuapp.com/sahmed93846.api-us1.com/api/3/contacts/${props.props}`
+        axios.get(`https://cors-anywhere.herokuapp.com/sahmed93846.api-us1.com/api/3/contacts/${props.props}?limit=50`
         , {
             headers: {
                 'Api-Token': process.env.REACT_APP_API_TOKEN
