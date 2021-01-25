@@ -5,10 +5,11 @@ import Contact from './Contact';
 
 const Contacts = (props) => {
     const [contacts, setContacts] = useState([]);
+    const [loaded, setLoaded] = useState(false);
     
     
     useEffect(() => {
-        axios.get('https://sahmed93846.api-us1.com/api/3/contacts?offset=20', {
+        axios.get('/contacts', {
             headers: {
                 'Api-Token' : process.env.REACT_APP_API_TOKEN,
                 'Cache-Control' : 'max-age=12 public max-stale[=5]'
@@ -16,13 +17,16 @@ const Contacts = (props) => {
         })
         .then(res => res.data)
         .then(data => {
+            console.log(data)
             setContacts(data.contacts)
+            setLoaded(true)
             // console.log(data)
         })
         .catch(error => console.log(error))
         }, [])
 
     return (
+        loaded &&
         
             <tbody>
                 

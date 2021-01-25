@@ -3,27 +3,19 @@ import '../App.css';
 import axios from 'axios';
 import Image from 'react-bootstrap/Image';
 
+// assumed deals column is in reference to the total number of all deals
+
 
 const Contact = (props) => {
   
-    // const [contactId] = useState(...props.id) 
     const [contact, setContact] = useState(props.props);
     const [deals, setDeals] = useState([]);
     const [geoAddresses, setGeoAddresses] = useState([]);
     const [loaded, setLoaded] = useState(false);
-    // const [setContactData] = useState({})
-    // const contact = useContext(contactData.contact);
-    // const geoAddresses = useContext(contactData.geoAddresses)
-    // [contacts, setContacts] = useContext({ContactContext})
-    
-    
-    
-    
-    // const ContactContext = 
-    // createContext(contactData.contact);
+
     useEffect(() => {
         
-        axios.get(`https://sahmed93846.api-us1.com/api/3/contacts/${props.props}?limit=0`, {
+        axios.get(`/contacts/${props.props}?limit=0`, {
             headers: {
                 'Api-Token': process.env.REACT_APP_API_TOKEN,
                 'Cache-Control': 'max-age=120 public max-stale=[200]'
@@ -31,21 +23,24 @@ const Contact = (props) => {
         })
         .then(res => res.data)
         .then(data => {
-            
-            setDeals(data.deals)
+            console.log(data)
             setContact(data.contact)
+            setDeals(data.deals) 
             setGeoAddresses(data.geoAddresses)
             
-            console.log(data.geoAddresses)
-           setLoaded(true)
+            setLoaded(true)
+            
+           
+           
         })
         .catch(error => console.log(error))
-    }, [props], [], [])
+    }, [props.props], [], [])
 
 
     return (
-      loaded && 
 
+      loaded && 
+        
           
             <tr>
             <td className="text-center">
@@ -67,19 +62,18 @@ const Contact = (props) => {
               
               ))}
             </td>
-            <td>{contact.geoAddresses.city}
-              {/* {geoAddresses.map(geoAddresses => (
-                geoAddresses.city  */}
-                {/* // + ' ' + {geoAddresses.state} + ' ' + {geoAddresses.country2} */}
-              {/* ))} */}
-
+            <td>
+              {!geoAddresses || 
+              [geoAddresses.map(geoAddresses => (
+                geoAddresses.city +  ', ' + 
+                geoAddresses.state + ', ' + 
+                geoAddresses.country2))]}
             </td>
             <td className="text-center">
              {contact.deals.length}
-              
             </td>
             <td>
-              {contact.tags}
+              {/* {contact.tags} */}
             </td>
           </tr>
 
