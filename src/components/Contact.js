@@ -50,17 +50,15 @@ const Contact = (props) => {
             </div>
             </td>
             <td>
-              <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoEPvvuhwVmeQk5SflMhusiojB5ud58g59Lw&usqp=CAU" roundedCircle thumbnail />
+             <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoEPvvuhwVmeQk5SflMhusiojB5ud58g59Lw&usqp=CAU" roundedCircle thumbnail />
+             
              {contact.firstName} {contact.lastName}
             </td>
-            
             <td className="text-left">
               {deals.map(deals => (
-                
-               <div symbol="$" key={deals.id}> {deals.currency} 
-                <> </> {deals.value} </div>
-              
+                (new Intl.NumberFormat('en-US', { style: 'currency', currency: (deals.currency), maximumFractionDigits: 0}).format(deals.value))
               ))}
+              
             </td>
             <td>
               {!geoAddresses || 
