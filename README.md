@@ -16,6 +16,7 @@ Contacts from example ActiveCampaign employee account that are called using REST
 The live app can be viewed here:
 
 The repo on github here:
+https://github.com/SarahRourke/Contacts-ActiveCampaign-Code-Challenge
 
 To run the app locally clone github repo onto local machine;
  
