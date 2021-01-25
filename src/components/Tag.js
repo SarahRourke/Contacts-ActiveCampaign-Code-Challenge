@@ -12,7 +12,7 @@ const Tag = (props) => {
         axios.get(`https://cors-anywhere.herokuapp.com/sahmed93846.api-us1.com/api/3/tags/${props.props}`, {
             headers: {
                 'Api-Token' : process.env.REACT_APP_API_TOKEN,
-                'Cache-Control' : 'max-age=120 public max-stale[=200]'
+                'Cache-Control' : 'max-age=86400 public max-stale=[86400]'
             },
         }
         )
