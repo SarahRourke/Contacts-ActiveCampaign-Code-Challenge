@@ -16,11 +16,12 @@ const Contact = (props) => {
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
-        
-        axios.get(`https://cors-anywhere.herokuapp.com/sahmed93846.api-us1.com/api/3/contacts/${props.props}`, {
+        // added https:// to the api url to see if that effects api calls
+        axios.get(`https://cors-anywhere.herokuapp.com/https://sahmed93846.api-us1.com/api/3/contacts/${props.props}`, {
             headers: {
                 'Api-Token': process.env.REACT_APP_API_TOKEN,
-                'Cache-Control': 'max-age=86400 public max-stale=[86400]'
+                // changing max-age from 86400 to 2 to see if that helps with so many api calls. Means headers data will only be cached for 2 seconds. 
+                'Cache-Control': 'max-age=2 public max-stale=[86400]'
             },
         }
         )
@@ -35,7 +36,7 @@ const Contact = (props) => {
            
         })
         .catch(error => console.log(error))
-    }, [props.props], [deals], [geoAddresses])
+    }, [props.props], [], [])
 
 
     return (

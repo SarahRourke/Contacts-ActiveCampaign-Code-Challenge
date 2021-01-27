@@ -9,10 +9,11 @@ const Tag = (props) => {
     const [loaded, setLoaded] = useState(false)
     console.log(tag)
     useEffect(() => {
-        axios.get(`https://cors-anywhere.herokuapp.com/sahmed93846.api-us1.com/api/3/tags/${props.props}`, {
+        // adding https:// to api url to see its effects on api calls
+        axios.get(`https://cors-anywhere.herokuapp.com/https://sahmed93846.api-us1.com/api/3/tags/${props.props}`, {
             headers: {
                 'Api-Token' : process.env.REACT_APP_API_TOKEN,
-                'Cache-Control' : 'max-age=86400 public max-stale=[86400]'
+                'Cache-Control' : 'max-age=2 public max-stale=[86400]'
             },
         }
         )
@@ -23,7 +24,7 @@ const Tag = (props) => {
         
         })
         .catch(error => console.log(error))
-    }, [])
+    }, [props.props])
 
     return (
         loaded && 

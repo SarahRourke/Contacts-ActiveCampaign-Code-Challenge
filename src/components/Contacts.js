@@ -9,11 +9,12 @@ const Contacts = (props) => {
    
   
     useEffect(() => {
-        
-        axios.get('https://cors-anywhere.herokuapp.com/sahmed93846.api-us1.com/api/3/contacts?limit=20', {
+        // added https:// to the api url to see if that makes any difference
+        axios.get('https://cors-anywhere.herokuapp.com/https://sahmed93846.api-us1.com/api/3/contacts?limit=10', {
             headers: {
                 'Api-Token' : process.env.REACT_APP_API_TOKEN,
-                'Cache-Control' : 'max-age=86400 public max-stale=[86400]'
+                // still figuring out cors config and how to best set headers and the settings' effects on data rendering/api calls
+                'Cache-Control' : 'max-age=2 public max-stale=[86400]'
             },
         }
         )
