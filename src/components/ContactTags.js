@@ -10,7 +10,7 @@ const ContactTags = (props) => {
     console.log(tags)
     useEffect(() => {
         // adding https:// to api url to see its effects on api calls
-        axios.get(`https://cors-anywhere.herokuapp.com/https://sahmed93846.api-us1.com/api/3/contacts/${props.props}/contactTags`, {
+        axios.get(`/contacts/${props.props}/contactTags`, {
             headers: {
                 'Api-Token': process.env.REACT_APP_API_TOKEN,
                 'Cache-Control' : 'max-age=2 public max-stale=[86400]'
