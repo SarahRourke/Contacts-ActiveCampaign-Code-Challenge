@@ -25,7 +25,7 @@ const ContactTags = (props) => {
             setLoaded(true)
         })
         .catch(error => console.log(error))
-    }, [])
+    }, `${props.props}`)
 
 
     return (
