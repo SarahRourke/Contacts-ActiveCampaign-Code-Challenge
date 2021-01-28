@@ -13,7 +13,7 @@ const Contacts = (props) => {
         axios.get('https://sahmed93846.api-us1.com/api/3/contacts?limit=20', {
             headers: {
                 'Api-Token' : process.env.REACT_APP_API_TOKEN,
-                'Content-Type' : 'application/x-www-form-urlencoded',
+                'Content-Type' : 'application/json',
                 'Origin' : 'https://shielded-spire-74256.herokuapp.com',
                 // still figuring out cors config and how to best set headers and the settings' effects on data rendering/api calls
                 'Cache-Control' : 'max-age=2 public max-stale=[86400]',
