@@ -8,7 +8,7 @@ const Tag = (props) => {
     const [tag, setTag] = useState([props.props])
     const [loaded, setLoaded] = useState(false)
     console.log(tag)
-    const url = `https://cors-anywhere.herokuapp.com/https://sahmed93846.api-us1.com/api/3/tags/${props.props}`
+    const url = `https://cors-anywhere.herokuapp.com/http://sahmed93846.api-us1.com/api/3/tags/${props.props}`
     const cache = {};
     useEffect(() => {
         // adding https:// to api url to see its effects on api calls
