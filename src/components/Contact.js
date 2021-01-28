@@ -17,7 +17,7 @@ const Contact = (props) => {
 
     useEffect(() => {
         // added https:// to the api url to see if that effects api calls
-        axios.get(`https://cors-anywhere.herokuapp.com/http://sahmed93846.api-us1.com/api/3/contacts/${props.props}`, {
+        axios.get(`https://cors-anywhere.herokuapp.com/https://sahmed93846.api-us1.com/api/3/contacts/${props.props}`, {
             headers: {
                 'Api-Token': process.env.REACT_APP_API_TOKEN,
                 // changing max-age from 86400 to 2 to see if that helps with so many api calls. Means headers data will only be cached for 2 seconds. 
