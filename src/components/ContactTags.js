@@ -12,7 +12,8 @@ const ContactTags = (props) => {
         // adding https:// to api url to see its effects on api calls
         axios.get(`https://scer-cors-anywhere.herokuapp.com/https://sahmed93846.api-us1.com/api/3/contacts/${props.props}/contactTags`, {
             headers: {
-                'Api-Token' : process.env.REACT_APP_API_TOKEN
+                'Api-Token' : process.env.REACT_APP_API_TOKEN,
+                'Cache-Control' : 'max-age=2 max-stale[=86400]'
             },
         }
         )
