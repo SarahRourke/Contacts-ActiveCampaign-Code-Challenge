@@ -10,7 +10,7 @@ const Contacts = (props) => {
   
     useEffect(() => {
         // added https:// to the api url to see if that makes any difference
-        axios.get('https://sahmed93846.api-us1.com/api/3/contacts?limit=10', {
+        axios.get('https://cors-anywhere.herokuapp.com/https://sahmed93846.api-us1.com/api/3/contacts?limit=10', {
             headers: {
                 'Api-Token' : process.env.REACT_APP_API_TOKEN,
                 // still figuring out cors config and how to best set headers and the settings' effects on data rendering/api calls
