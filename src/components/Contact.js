@@ -21,7 +21,8 @@ const Contact = (props) => {
             headers: {
                 'Api-Token': process.env.REACT_APP_API_TOKEN,
                 // changing max-age from 86400 to 2 to see if that helps with so many api calls. Means headers data will only be cached for 2 seconds. 
-                'Cache-Control': 'max-age=2 public max-stale=[86400]'
+                'Cache-Control': 'max-age=2 public max-stale=[86400]',
+                'Credentials' : 'include'
             },
         }
         )

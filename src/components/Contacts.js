@@ -14,7 +14,8 @@ const Contacts = (props) => {
             headers: {
                 'Api-Token' : process.env.REACT_APP_API_TOKEN,
                 // still figuring out cors config and how to best set headers and the settings' effects on data rendering/api calls
-                'Cache-Control' : 'max-age=2 public max-stale=[86400]'
+                'Cache-Control' : 'max-age=2 public max-stale=[86400]',
+                'Credentials' : 'include'
             },
         }
         )
