@@ -21,7 +21,7 @@ const Contacts = (props) => {
             setLoaded(true)     
         })
         .catch(error => console.log(error))
-    }, [])
+    }, [contacts.length])
         
     return (
         
