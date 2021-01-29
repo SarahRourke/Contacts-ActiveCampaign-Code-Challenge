@@ -10,10 +10,10 @@ const Contacts = (props) => {
   
     useEffect(() => {
         // added https:// to the api url to see if that makes any difference
-        axios.get('https://scer-cors-anywhere.herokuapp.com/https://sahmed93846.api-us1.com/api/3/contacts', {
+        axios.get('https://scer-cors-anywhere.herokuapp.com/https://sahmed93846.api-us1.com/api/3/contacts?limit=0', {
             headers: {
                 'Api-Token' : process.env.REACT_APP_API_TOKEN,
-                'Cache-Control' : 'max-age=2 max-stale[=86400]'
+                'Cache-Control' : 'max-age=120 max-stale[=86400]'
         }}
         )
         .then(res => res.data)
@@ -22,7 +22,7 @@ const Contacts = (props) => {
             setLoaded(true)     
         })
         .catch(error => console.log(error))
-    }, [contacts.length])
+    }, [])
         
     return (
         
