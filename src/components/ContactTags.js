@@ -9,10 +9,11 @@ const ContactTags = (props) => {
     const [loaded, setLoaded] = useState(false)
     console.log(tags)
     useEffect(() => {
-        axios.get(`https://cors-anywhere.herokuapp.com/sahmed93846.api-us1.com/api/3/contacts/${props.props}/contactTags`, {
+        // adding https:// to api url to see its effects on api calls
+        axios.get(`https://scer-cors-anywhere.herokuapp.com/https://sahmed93846.api-us1.com/api/3/contacts/${props.props}/contactTags`, {
             headers: {
-                'Api-Token': process.env.REACT_APP_API_TOKEN,
-                'Cache-Control' : 'max-age=86400 public max-stale=[86400]'
+                'Api-Token' : process.env.REACT_APP_API_TOKEN,
+                'Cache-Control' : 'max-age=120 max-stale[=86400]'
             },
         }
         )
@@ -23,7 +24,7 @@ const ContactTags = (props) => {
             setLoaded(true)
         })
         .catch(error => console.log(error))
-    }, [])
+    }, [props.props])
 
 
     return (

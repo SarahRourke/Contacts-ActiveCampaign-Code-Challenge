@@ -41,39 +41,9 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-     <script>
-      var cors_api_url = 'https://cors-anywhere.herokuapp.com/';
-      function doCORSRequest(options, printResult) {
-        var x = new XMLHttpRequest();
-        x.open(options.method, cors_api_url + options.url);
-        x.onload = x.onerror = function() {
-          printResult(
-            options.method + ' ' + options.url + '\n' +
-            x.status + ' ' + x.statusText + '\n\n' +
-            (x.responseText || '')
-          );
-        };
-        if (/^POST/i.test(options.method)) {
-          x.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        }
-        x.send(options.data);
-      }
-      (function() {
-    var cors_api_host = 'cors-anywhere.herokuapp.com';
-    var cors_api_url = 'https://' + cors_api_host + '/';
-    var slice = [].slice;
-    var origin = window.location.protocol + '//' + window.location.host;
-    var open = XMLHttpRequest.prototype.open;
-    XMLHttpRequest.prototype.open = function() {
-        var args = slice.call(arguments);
-        var targetOrigin = /^https?:\/\/([^\/]+)/i.exec(args[1]);
-        if (targetOrigin && targetOrigin[0].toLowerCase() !== origin &&
-            targetOrigin[1] !== cors_api_host) {
-            args[1] = cors_api_url + args[1];
-        }
-        return open.apply(this, args);
-    };
-})();
-</script>  
+    
+       
+
+</script>   -->
   </body>
 </html>
