@@ -42,8 +42,9 @@ Requires: Node.js (v15.6.0), npm v7.4.0
 To run the app locally clone github repo onto local machine and run;
  
     npm init
+    npm install
 
-Set egines for the lastes npm and node versions in your package.json (for official build/deployment on heroku);
+Set egines for the lastes npm and node versions in your package.json (skip if not for official build/deployment on heroku);
 
 Obtain an Api-Token (assuming this was accessable to public). 
 Set this as your 'Api-Token': process.env.REACT_APP_API_TOKEN
