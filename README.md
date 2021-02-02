@@ -28,19 +28,23 @@ Source code for cors-anywhere can be found here;
 
 ### Dependencies
 
-axios ^0.21.1
-dotenv ^8.2.0
-prop-types ^15.7.2
-react-bootstrap ^1.4.3
-serve ^11.3.2
+  * axios ^0.21.1
+  * dotenv ^8.2.0
+  * prop-types ^15.7.2
+  * react-bootstrap ^1.4.3
+  * serve ^11.3.2
 
 ## Installation and Usage
- -For local development env
+For local development env
 
 Requires: Node.js (v15.6.0), npm v7.4.0
 
-To run the app locally clone github repo onto local machine and run;
- 
+To run the app locally clone github repo onto local machine,
+    
+    cd Contacts-ActiveCampaign-Code-Challenge
+    
+and run;
+
     npm init
     npm install
 
