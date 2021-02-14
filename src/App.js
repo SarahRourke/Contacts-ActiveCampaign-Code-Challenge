@@ -13,9 +13,9 @@ function App(props) {
           <thead className="text-muted">
             <tr>
               <th className="text-center">
-                <div className="form-check">
-                  <input className="form-check-input position-relative" type="checkbox" value="" id="defaultCheck1" aria-label="..."></input>
-                </div>
+                
+                  <input type="checkbox" value=""></input>
+                
               </th>
               <th>Contact</th>
               <th>Total Value</th>

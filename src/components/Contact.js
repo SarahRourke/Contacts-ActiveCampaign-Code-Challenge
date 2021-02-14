@@ -43,10 +43,10 @@ const Contact = (props) => {
           
             <tr>
               <td className="text-center">
-                <div className="form-check">
-                  <input className="form-check-input position-static"         type="checkbox" value="" id="defaultCheck1" aria-label="...">
+                
+                  <input type="checkbox" value="">
                   </input>
-                </div>
+              
               </td>
               
               <td className="names">
