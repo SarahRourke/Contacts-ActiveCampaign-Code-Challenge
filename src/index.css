@@ -1,6 +1,7 @@
+html, body, #root, div.App {
+  height: 100%
+}
 body {
-  margin: 0;
-  height: 100%;
-  display: flex-box;
+
   font-family: 'IBM Plex Sans', sans-serif;
 }

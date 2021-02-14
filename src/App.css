@@ -1,32 +1,36 @@
-.App {
+div.App {
   display: flex;
-  box-sizing: content-box;
-  height: 80vh;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  width: 100vw;
+  width: 100%;
   font-family: 'IBM Plex Sans', sans-serif;
-
 }
 
 div.table-container {
-  margin: 6rem auto;
-  width: 80vw;
-  height: 90%;
+  display: flex;
+  margin-top: 4rem;
+  width: 90%;
+  height: 85%;
   overflow-y: scroll;
 }
 
-.table-striped tbody tr:nth-of-type:odd {
+
+.table-striped tbody tr:nth-of-type:even {
   background-color: #e8f0ff;
 }
 
 table.table th {
+  box-sizing: inherit;
   background-color: white;
+  max-height: 28px;
   position: sticky;
   top: 0;
-  vertical-align: middle;
+  font-size: 14px;
 }
 
 table.table thead th {
+  box-sizing: inherit;
   text-align: left;
   font-size: 14px;
   border: 0; 
@@ -36,11 +40,20 @@ table.table thead th {
 }
 
 table.table th.text-center {
-  height: 12px;
+  font-size: 14px;
+  box-sizing: inherit;
   width: 12px;
   vertical-align: middle;
   padding-left: 12px;
   padding-right: 12px;
+  
+}
+
+table.table tr input {
+  box-sizing: inherit;
+  height: 12px;
+  width: 12px;
+  vertical-align: middle;
 }
 
 table.table tbody td {
@@ -53,32 +66,14 @@ table.table tbody td {
 }
 
 table.table td.text-left {
+  /* box-sizing: content-box; */
   height: 46px;
   vertical-align: middle;
   padding: 0;
 }
 
-div.form-check {
-  padding: 0;
-  margin: 0;
-  height: 28px;
-  vertical-align: middle;
-}
-
-table.table input {
-  max-height: 12px;
-  max-width: 12px;
-  margin: 0;
-  padding: 0;
-  vertical-align: middle;
-}
-
-Image {
-  height: 16px;
-  width: 16px;
-}
-
 img {
+  box-sizing: content-box;
   margin-right: 12px;
   margin-left: 0;
   height: 16px;
