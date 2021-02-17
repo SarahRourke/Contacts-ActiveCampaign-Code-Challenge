@@ -5,7 +5,8 @@ import { Table } from 'react-bootstrap';
 import Contacts from './components/Contacts';
 
 
-function App(props) {
+function App() {
+  
   return (
     <div className="App">
       <div className="table-container" >
