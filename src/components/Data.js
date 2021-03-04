@@ -7,44 +7,38 @@ import ContactTags from './ContactTags';
 
 
 const Data = (props) => {
-    const [contactObject, setContactObject] = useState([ ]);
+    // const [contactObject, setContactObject] = useState([ ]);
     const [contacts, setContacts] = useState([]);
-    const [deals, setDeals] = useState([]);
-    const [geoAddresses, setGeoAddresses] =  useState([]);
-    const [loaded, setLoaded] = useState(false);
+    // const [deals, setDeals] = useState([]);
+    // const [geoAddresses, setGeoAddresses] =  useState([]);
+    // const [loaded, setLoaded] = useState(false);
     
 
     
     useEffect(() => {
       
             // contacts?
-            const getData = async () => {
-                const response = await axios.get('https://scer-cors-anywhere.herokuapp.com/https://sahmed93846.api-us1.com/api/3/contacts?include=deals,geoAddresses,contactTags', {
+            
+                 axios.get('https://scer-cors-anywhere.herokuapp.com/https://sahmed93846.api-us1.com/api/3/contacts?include=deals,geoAddresses,contactTags', {
                         headers: {
                             'Api-Token' : process.env.REACT_APP_API_TOKEN,
                             'Cache-Control' : 'max-age=120 max-stale[=86400]'
                         }
                     })
-
-                    .then(res => {
-                        const contactObject = res.data;
-                        // const contacts = res.data.contacts;
-                        const deals = res.data.deals;
-                        const geoAddresses = res.data.geoAddresses;
-                        setContactObject(contactObject);
-                        setContacts(response.data);
-                        setDeals(deals);
-                        setGeoAddresses(geoAddresses);
-                        console.log(contactObject);
+                    .then(
+                        res => {
+                            console.log(res.data)
+                            setContacts(res.data)
+                        }
+                    )
                         
-                        setLoaded(true);
-                    })
+                    
                     .catch(error => console.log(error));
                 
-    }}, []);
+    }, [contacts]);
 
 
-    console.log(contactObject);
+    console.log(contacts);
     
    
 
@@ -94,14 +88,22 @@ const Data = (props) => {
 
 
     return (
-            loaded && 
+        <div>
+                    {contacts && contacts.map(contact => (
+                        return 
+                            contact.id
+
+                    ))
+                        
+                    ;
                         <tbody>
                             <tr key>
                                 <Contacts 
                              />
                       
                             </tr>
-                        </tbody>          
+                        </tbody> 
+        </div>         
     )
 }
 
