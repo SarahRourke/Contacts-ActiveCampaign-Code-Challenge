@@ -1,61 +1,60 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import '../App.css';
-import axios from 'axios';
+import Image, { propTypes } from 'react-bootstrap/Image';
 import Contact from './Contact';
 
-const Contacts = () => {
-    const [data, setData] = useState({});
-    // const [contacts, setContacts] = useState({});
-    // const [deals, setDeals] = useState([]);
-    const [loaded, setLoaded] = useState(false);
-   
+
+// assumed deals column is in reference to the total number of all deals
+// also, prefer using larger spacing for writing code - remember this on setup
+// better way to write 'props.props'? sounds pretty dumb
+
+const Contacts = (props) => {
   
-    useEffect(() => {
-            // contacts?
-        axios.get('https://scer-cors-anywhere.herokuapp.com/https://sahmed93846.api-us1.com/api/3/contacts?include=deals', {
-            headers: {
-                'Api-Token' : process.env.REACT_APP_API_TOKEN,
-                'Cache-Control' : 'max-age=120 max-stale[=86400]'
-        }}
-        )
-        .then(res => res.data)
-        .then(data => {
-            console.log(data)
-            setData({contacts: (data.contacts),
-                deals: (data.deals)}
-                )
-            // setContacts(data)
-            // setDeals(data.deals)
-            setLoaded(true)
-            // console.log(data)     
-        })
-        .catch(error => console.log(error))
-    }, [])
-        // console.log(data)
+  // returns 20 individual contact objects with firstName, lastName, and number of deals 
+  console.log(props);
+  // const { ...contact } = contacts; 
+  // console.log(contact);
 
-    
 
-        
-    return (
-        
-        loaded && 
-        
-            <tbody>
 
-                {/* <Data contact={(data.contacts)}/> */}
-               {data.contacts.map(contact => (
-                   <Contact key={contact.id} contact={contact} deals={data.deals}
-               
-               />
-                ))}   
+  
+  
+ return (
 
-                    
-                    
+ <>
+  
+            
+                <td className="text-center">
+                    <input type="checkbox" value="">
+                    </input>
+                </td>
+            
+                <td className="names">
+                 
+                <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoEPvvuhwVmeQk5SflMhusiojB5ud58g59Lw&usqp=CAU" roundedCircle thumbnail /> 
+                <>{props.name}</>
+                 
                 
-                
-            </tbody>
-                
-    )
-}
+              </td>
+            
+
+                <td className="text-left"> 
+                  {/* {props.totalValue}  */}
+                </td>
+
+                <td className="location">
+                  {/* {props.location} */}
+                </td>
+
+                <td className="text-center">
+                  {/* {props.deals} */}
+                </td>
+                  
+                <td className="tags">
+                  {/* {props.tags} */}
+                </td> 
+            </>
+            
+ )}
 
 export default Contacts;

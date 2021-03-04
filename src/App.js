@@ -1,11 +1,10 @@
 import React from 'react';
 import './App.css';
-import PropTypes from 'prop-types';
 import { Table } from 'react-bootstrap';
-import Contacts from './components/Contacts';
+import Data from './components/Data';
 
 
-function App() {
+function App(props) {
   
   return (
     <div className="App">
@@ -25,7 +24,7 @@ function App() {
               <th>Tags</th>
             </tr>
           </thead>
-          <Contacts />
+          <Data />
         </Table>
       </div>
     </div>
